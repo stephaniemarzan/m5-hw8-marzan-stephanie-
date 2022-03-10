@@ -25,12 +25,11 @@ var message = document.getElementById('message');
 
 var boxes = document.querySelectorAll('.box');
 
-for (var i = 0; i < boxes.length; i ++ )
-
-boxes[i].onclick = function(){
-    var boxClicked = event.target.textContent;
-    parseInt(boxClicked);
-}
+for (var i = 0; i < boxes.length; i ++ ){
+    boxes[i].addEventListener('onclick',function(){
+        var boxClicked = event.target.textContent;
+        parseInt(boxClicked);
+    })
 
 
 // create a random number between 1-3 and store it to a variable
@@ -55,4 +54,5 @@ else {
     message.textContent = losingMessages[i];
    }
    losses.textContent = totalLoss + 1;
+}
 }
