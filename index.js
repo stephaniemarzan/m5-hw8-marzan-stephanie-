@@ -29,43 +29,36 @@ var message = document.getElementById('message');
 // if the numbers match, increment wins and display the win count in div#wins
 // if the numbers don't match, change the div#message element's text to a random losing message from the array above
 // if the numbers don't match, increment losses and display the loss count in div#losses
+// create a random number between 1-3 and store it to a variable
+// This number will represent the winning box
+// determine if the box clicked is equal to the random number
+// if the numbers match, display a winning message by changing the text content of the div#message element
+// if the numbers match, increment wins and display the win count in div#wins
+// if the numbers don't match, change the div#message element's text to a random losing message from the array above
+// if the numbers don't match, increment losses and display the loss count in div#losses
 
 
 var boxes = document.querySelectorAll('.box');
 
-randomNumber = Math.floor(Math.random()*4);
+randomNumber = Math.floor(Math.random()*3)+1;
 
 for (var i = 0; i < boxes.length; i ++ ){
     boxes[i].addEventListener('click', function(e){
         var boxClicked = e.target.textContent;
         parseInt(boxClicked);
 
-        if(boxClicked = randomNumber){
+        var numOfClickedBox = parseInt(boxClicked)
+
+        if(numOfClickedBox === randomNumber){
             message.textContent = "Congratulations!";
-            wins.textContent = 'Total Wins:'+ totalWins + 1;
-            losses.textContent = 'Total Losses:' +totalLoss;
+            totalWins++
+            wins.textContent = 'Wins:'+ totalWins;
         }
 
         else {
-            for(var i = 0; i < losingMessages.length; i++){
-             message.textContent = losingMessages[i];
-            }
-            losses.textContent = 'Total Losses:'+ totalLoss + 1;
-            wins.textContent = 'Total Wins:'+ totalWins;
+             message.textContent = losingMessages[Math.floor(Math.random() * 3)];
+            totalLoss++
+            losses.textContent = 'Losses:'+ totalLoss;
          }
     })
 };
-
-
-// create a random number between 1-3 and store it to a variable
-// This number will represent the winning box
-
-
-// determine if the box clicked is equal to the random number
-// if the numbers match, display a winning message by changing the text content of the div#message element
-// if the numbers match, increment wins and display the win count in div#wins
-
-
-
-// if the numbers don't match, change the div#message element's text to a random losing message from the array above
-// if the numbers don't match, increment losses and display the loss count in div#losses

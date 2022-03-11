@@ -67,6 +67,29 @@ main{
   background-color: #A5FF01;
 }
 
+.score{
+  display: flex;
+}
+
+#wins,
+#losses{
+  text-align:end;
+  font-size: 2em;
+  color: #6003C3;
+  flex: 1;
+  margin-top: 70px;
+}
+
+#wins{
+  text-align:end;
+  padding-right: 20px;
+}
+
+#losses{
+  text-align:start;
+}
+
+
 @media only screen and (min-width: 768px) {
 
   .boxes{
