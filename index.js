@@ -26,10 +26,10 @@ var message = document.getElementById('message');
 var boxes = document.querySelectorAll('.box');
 
 for (var i = 0; i < boxes.length; i ++ ){
-    boxes[i].onclick = function(event){
-        var boxClicked = event.target.textContent;
+    boxes[i].addEventListener('click', function(e){
+        var boxClicked = e.target.textContent;
         parseInt(boxClicked);
-    }
+    })
 };
 
 
